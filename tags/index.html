@@ -192,10 +192,10 @@
       <div class="post-body">
           <div class="tag-cloud">
             <div class="tag-cloud-title">
-              目前共计 3 个标签
+              目前共计 4 个标签
             </div>
             <div class="tag-cloud-tags">
-              <a href="/tags/blog/" style="font-size: 12px; color: #ccc">blog</a> <a href="/tags/hexo/" style="font-size: 12px; color: #ccc">hexo</a> <a href="/tags/next/" style="font-size: 12px; color: #ccc">next</a>
+              <a href="/tags/blog/" style="font-size: 12px; color: #ccc">blog</a> <a href="/tags/hexo/" style="font-size: 12px; color: #ccc">hexo</a> <a href="/tags/next/" style="font-size: 12px; color: #ccc">next</a> <a href="/tags/%E7%BD%AE%E9%A1%B6/" style="font-size: 12px; color: #ccc">置顶</a>
             </div>
           </div>
         
@@ -275,7 +275,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -288,7 +288,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -409,14 +409,14 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       notify     : false,
       appId      : '8giEQPMwgx1U4sbhQlcAzMH7-gzGzoHsz',
       appKey     : 'PvfuscEwmkX7wRLfTJw2kCNb',
-      placeholder: "Just go go",
+      placeholder: "请在这里留言",
       avatar     : 'mm',
       meta       : guest,
       pageSize   : '10' || 10,
       visitor    : false,
       lang       : '' || 'zh-cn',
       path       : location.pathname,
-      recordIP   : false,
+      recordIP   : true,
       serverURLs : ''
     });
   }, window.Valine);
