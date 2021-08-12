@@ -27,15 +27,15 @@
 <meta property="og:site_name" content="yyyying的blog">
 <meta property="og:description" content="今日说法爬虫实战（初版）  Excel数据 ：百度网盘分享提取码：n3ue">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2021/08/12/images/jrsf_spider1.png">
+<meta property="og:image" content="http://example.com/images/jrsf_spider1.png">
 <meta property="article:published_time" content="2021-08-12T14:09:56.000Z">
-<meta property="article:modified_time" content="2021-08-12T14:34:34.360Z">
+<meta property="article:modified_time" content="2021-08-12T14:42:04.584Z">
 <meta property="article:author" content="yyyying">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="爬虫">
 <meta property="article:tag" content="今日说法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/08/12/images/jrsf_spider1.png">
+<meta name="twitter:image" content="http://example.com/images/jrsf_spider1.png">
 
 <link rel="canonical" href="http://example.com/2021/08/12/%E4%BB%8A%E6%97%A5%E8%AF%B4%E6%B3%95%E7%88%AC%E8%99%AB/">
 
@@ -202,7 +202,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-08-12 22:09:56 / 修改时间：22:34:34" itemprop="dateCreated datePublished" datetime="2021-08-12T22:09:56+08:00">2021-08-12</time>
+              <time title="创建时间：2021-08-12 22:09:56 / 修改时间：22:42:04" itemprop="dateCreated datePublished" datetime="2021-08-12T22:09:56+08:00">2021-08-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -259,7 +259,7 @@
 </blockquote>
 <span id="more"></span>
 <p>针对《今日说法》央视视频进行爬取，网页地址：<a target="_blank" rel="noopener" href="https://tv.cctv.com/lm/jrsf/">https://tv.cctv.com/lm/jrsf/</a></p>
-<h1 id="网页分析"><a href="#网页分析" class="headerlink" title="网页分析"></a>网页分析</h1><p>首先通过分析发现<code>html</code>文件中中没数据，通过Google Chrome分析发现数据源自下图<br><img src="../images/jrsf_spider1.png" alt="Chrome开发者工具截图"><br>并且可以通过进一步测试分析，n代表爬取信息数目（n最大值100，即一次请求最多获取100条信息），p为页数，本爬虫通过修改p值完成所有数据爬取。</p>
+<h1 id="网页分析"><a href="#网页分析" class="headerlink" title="网页分析"></a>网页分析</h1><p>首先通过分析发现<code>html</code>文件中中没数据，通过Google Chrome分析发现数据源自下图<br><img src="/images/jrsf_spider1.png" alt="Chrome开发者工具截图"><br>并且可以通过进一步测试分析，n代表爬取信息数目（n最大值100，即一次请求最多获取100条信息），p为页数，本爬虫通过修改p值完成所有数据爬取。</p>
 <h1 id="数据爬取"><a href="#数据爬取" class="headerlink" title="数据爬取"></a>数据爬取</h1><blockquote>
 <p>数据爬取通过python-request模块实现<br>经过分析同过request模块发送get请求，获取数据并保存本地</p>
 </blockquote>
