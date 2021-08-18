@@ -28,7 +28,7 @@
 <meta property="og:description" content="力扣每日刷题">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-08-17T11:23:05.000Z">
-<meta property="article:modified_time" content="2021-08-17T11:36:37.241Z">
+<meta property="article:modified_time" content="2021-08-18T15:48:03.150Z">
 <meta property="article:author" content="yyyying">
 <meta property="article:tag" content="力扣">
 <meta property="article:tag" content="刷题">
@@ -197,10 +197,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-08-17 19:23:05 / 修改时间：19:36:37" itemprop="dateCreated datePublished" datetime="2021-08-17T19:23:05+08:00">2021-08-17</time>
+              <time title="创建时间：2021-08-17 19:23:05" itemprop="dateCreated datePublished" datetime="2021-08-17T19:23:05+08:00">2021-08-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-18 23:48:03" itemprop="dateModified" datetime="2021-08-18T23:48:03+08:00">2021-08-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -231,7 +237,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>286</span>
+              <span>992</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -256,6 +262,66 @@
 <summary>2021.8.17 简单题目</summary>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">checkRecord</span>(<span class="params">self, s</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        absent = <span class="number">0</span></span><br><span class="line">        late = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> s:</span><br><span class="line">            <span class="keyword">if</span> i == <span class="string">&#x27;L&#x27;</span>:</span><br><span class="line">                late += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                late = <span class="number">0</span></span><br><span class="line">                <span class="keyword">if</span> i == <span class="string">&#x27;A&#x27;</span>:</span><br><span class="line">                    absent += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> late &gt;= <span class="number">3</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> absent &lt; <span class="number">2</span></span><br></pre></td></tr></table></figure>
 </details>
+
+<h1 id="552-学生出勤记录II"><a href="#552-学生出勤记录II" class="headerlink" title="552.学生出勤记录II"></a>552.学生出勤记录II</h1><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/student-attendance-record-ii/">题目链接</a></p>
+<details>
+<summary>题目描述：</summary>
+
+<p>可以用字符串表示一个学生的出勤记录，其中的每个字符用来标记当天的出勤情况（缺勤、迟到、到场）。记录中只含下面三种字符：<br><em>‘A’：Absent，缺勤</em><br>‘L’：Late，迟到<br>‘P’：Present，到场<br>如果学生能够 同时 满足下面两个条件，则可以获得出勤奖励：<br>按 总出勤 计，学生缺勤（’A’）严格 少于两天。<br>学生 不会 存在 连续 3 天或 连续 3 天以上的迟到（’L’）记录。<br>给你一个整数 n ，表示出勤记录的长度（次数）。请你返回记录长度为 n 时，可能获得出勤奖励的记录情况 数量 。答案可能很大，所以返回对 109 + 7 取余 的结果。</p>
+</details>
+
+<p>此题数据规模较大，个人思路尝试动态规划解题，后参考题解使用<strong>矩阵快速幂</strong>可以时间复杂度由O(n)降为O(log n)，下边是我的程序</p>
+<details>
+<summary>程序</summary>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a,b,c,d,e,f = <span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n-<span class="number">1</span>):</span><br><span class="line">    a,b,c,d,e,f = a+b+c,a,b,a+b+c+d+e+f,d,e</span><br><span class="line">    a %= (<span class="number">10</span>**<span class="number">9</span>+<span class="number">7</span>)</span><br><span class="line">        b %= (<span class="number">10</span>**<span class="number">9</span>+<span class="number">7</span>)</span><br><span class="line">        c %= (<span class="number">10</span>**<span class="number">9</span>+<span class="number">7</span>)</span><br><span class="line">        d %= (<span class="number">10</span>**<span class="number">9</span>+<span class="number">7</span>)</span><br><span class="line">        e %= (<span class="number">10</span>**<span class="number">9</span>+<span class="number">7</span>)</span><br><span class="line">        f %= (<span class="number">10</span>**<span class="number">9</span>+<span class="number">7</span>)</span><br><span class="line"><span class="keyword">return</span> (a+b+c+d+e+f)%(<span class="number">10</span>**<span class="number">9</span>+<span class="number">7</span>)</span><br></pre></td></tr></table></figure>
+</details>
+
+<details>
+<summary>程序分析</summary>
+
+<p>程序分析：使用动态规划，此题一共六种情况：<code>无A结尾无L</code>,<code>无A结尾一个L</code>,<code>无A结尾两个L</code>,<code>一个A结尾无L</code>,<code>一个A结尾一个L</code>,<code>一个A结尾两个L</code>，每一天结果相互转化，起始第一天为（1,1,0,1,0,0)，之后每一天一次转换:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>前一天</th>
+<th>今天</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>无A结尾无L</td>
+<td>a</td>
+<td>a+b+c</td>
+</tr>
+<tr>
+<td>无A结尾一个L</td>
+<td>b</td>
+<td>a</td>
+</tr>
+<tr>
+<td>无A结尾两个L</td>
+<td>c</td>
+<td>b</td>
+</tr>
+<tr>
+<td>一个A结尾无L</td>
+<td>d</td>
+<td>a+b+c+d</td>
+</tr>
+<tr>
+<td>一个A结尾一个L</td>
+<td>e</td>
+<td>d</td>
+</tr>
+<tr>
+<td>一个A结尾两个L</td>
+<td>f</td>
+<td>e</td>
+</tr>
+</tbody></table>
+</details>
+
     </div>
 
     
@@ -275,8 +341,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/08/14/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0%EF%BC%882%EF%BC%89/" rel="prev" title="网络爬虫学习（2）">
-      <i class="fa fa-chevron-left"></i> 网络爬虫学习（2）
+    <a href="/2021/08/17/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0%EF%BC%883%EF%BC%89/" rel="prev" title="网络爬虫学习（3）">
+      <i class="fa fa-chevron-left"></i> 网络爬虫学习（3）
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -338,7 +404,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#551-%E5%AD%A6%E7%94%9F%E5%87%BA%E5%8B%A4%E8%AE%B0%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">551.学生出勤记录</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#551-%E5%AD%A6%E7%94%9F%E5%87%BA%E5%8B%A4%E8%AE%B0%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">551.学生出勤记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#552-%E5%AD%A6%E7%94%9F%E5%87%BA%E5%8B%A4%E8%AE%B0%E5%BD%95II"><span class="nav-number">2.</span> <span class="nav-text">552.学生出勤记录II</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -354,7 +420,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -422,12 +488,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">10k</span>
+    <span title="站点总字数">12k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">9 分钟</span>
+    <span title="站点阅读时长">11 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
